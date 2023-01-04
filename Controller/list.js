@@ -1,4 +1,3 @@
-import { readFileSync, writeFileSync } from "fs";
 import { List } from "../models/list.js";
 import { Op } from "sequelize";
 // ADD USERS
@@ -17,8 +16,8 @@ export const addLists = async (req, res) => {
 // GET USERS
 export const getLists = async (req, res) => {
   const { task, priority, created_by } = req.query;
-  
-  const query = { where: {} };
+
+  const query = { where: {}, order: [["id", "DESC"]] };
 
   if (task) {
     query.where.task = { [Op.like]: `%${task}%` };
