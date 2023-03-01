@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use("/list", router);
 
 app.get("/", (req, res) => {
-  res.send("Hello Oliver from GCP");
+  res.send("Hello Oliver from your node-api project");
 });
 
 app.listen(port, () => {
